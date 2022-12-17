@@ -5,7 +5,7 @@
     <link>https://alexandervossen.github.io/tag/statistics/</link>
       <atom:link href="https://alexandervossen.github.io/tag/statistics/index.xml" rel="self" type="application/rss+xml" />
     <description>Statistics</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 16 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 17 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Statistics</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Plotting (inverted) u-shapes in R</title>
       <link>https://alexandervossen.github.io/post/plotting-u-shapes/</link>
-      <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
       <guid>https://alexandervossen.github.io/post/plotting-u-shapes/</guid>
       <description>
 
@@ -36,17 +36,17 @@ f_logit &amp;lt;-function(b0,b1,b2,x) {
 distinctiveness &amp;lt;- rtruncnorm(n=1000, a=0, b=1, mean=0.5, sd=0.2)
 df &amp;lt;- data.frame(distinctiveness)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And compute us some variables to plot. Note that I use the parameters proposed by &lt;span class=&#34;citation&#34;&gt;Haans (&lt;a href=&#34;#ref-haansWhatValueBeing2019&#34; role=&#34;doc-biblioref&#34;&gt;2019&lt;/a&gt;)&lt;/span&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;###generate s shapes for  inverted u-shape 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;###generate s shapes for  inverted u-shape
 df$competitive_gain &amp;lt;- f_logit(4,-12,0,df$distinctiveness) ## &amp;quot;stronger&amp;quot;
 df$legitimacy_loss &amp;lt;- f_logit(6,-10,0,df$distinctiveness) ## &amp;quot;weaker&amp;quot;
 df$inverted_u &amp;lt;-df$competitive_gain - df$legitimacy_loss ## substract from each other
 ####generate s shapes for  u
 df$competitive_gain_u &amp;lt;- f_logit(6,-10,0,df$distinctiveness) ## &amp;quot;weaker&amp;quot;
 df$legitimacy_loss_u &amp;lt;- f_logit(4,-12,0,df$distinctiveness) ## &amp;quot;stronger&amp;quot;
-df$u &amp;lt;-df$competitive_gain_u - df$legitimacy_loss_u &lt;/code&gt;&lt;/pre&gt;
+df$u &amp;lt;-df$competitive_gain_u - df$legitimacy_loss_u&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now we can start to plot.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1&amp;lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss, x=distinctiveness, colour=&amp;quot;costs&amp;quot;)) +
   scale_color_manual(name = &amp;quot;&amp;quot;, values = c( &amp;quot;benefits&amp;quot; = &amp;quot;darkgreen&amp;quot;, &amp;quot;costs&amp;quot; = &amp;quot;darkred&amp;quot;))+
   labs(y=&amp;quot;Relative strength&amp;quot;, x=&amp;quot;Distinctiveness&amp;quot;)+
@@ -62,14 +62,14 @@ p2 &amp;lt;- ggplot() +
   theme_bw()
 
 p3 &amp;lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss_u, x=distinctiveness, colour=&amp;quot;costs&amp;quot;)) +
   scale_color_manual(name = &amp;quot;&amp;quot;, values = c( &amp;quot;benefits&amp;quot; = &amp;quot;darkgreen&amp;quot;, &amp;quot;costs&amp;quot; = &amp;quot;darkred&amp;quot;))+
   labs(y=&amp;quot;Relative strength&amp;quot;, x=&amp;quot;Distinctiveness&amp;quot;)+
   scale_y_continuous(breaks = NULL) +
   scale_x_continuous(breaks = NULL) +
   theme_bw()+ theme(legend.position = c(0.8,0.3))
- 
+
 
 p4 &amp;lt;- ggplot() +
   geom_line(data=df,aes(y = u, x=distinctiveness))  +  
@@ -81,11 +81,11 @@ p4 &amp;lt;- ggplot() +
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;###patchwork plots
 p1+p2+p3+p4&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://alexandervossen.github.io/post/plotting-u-shapes/index.en_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;And if you want to you can save it as a latex file to import in your paper. The width and height is what I found to fit nicely in my Latex layout.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## create tikz file by specifying your path 
+&lt;p&gt;And if you want to you can save it as a Latex file to import in your paper. The width and height is what I found to fit nicely in my Latex layout.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## create tikz file by specifying your path
 tikz(file = &amp;quot;~/your/path/mech_plots.tex&amp;quot;, width = 6.7, height = 3.4)
 
-p1+p2+p3+p4+plot_layout(ncol = 2) ## gives you two columns -redundant in this case
+p1+p2+p3+p4+plot_layout(ncol = 2) ## gives you two columns-redundant in this case
 
 dev.off()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you want the OG &lt;span class=&#34;citation&#34;&gt;Haans (&lt;a href=&#34;#ref-haansWhatValueBeing2019&#34; role=&#34;doc-biblioref&#34;&gt;2019&lt;/a&gt;)&lt;/span&gt; plots just specify the inverse-logit function and rerun the code. Note that I changed &lt;code&gt;theme(legend.position)&lt;/code&gt; so that the labels do not overlap with the new plots.&lt;/p&gt;
@@ -99,9 +99,9 @@ df$inverted_u &amp;lt;-df$competitive_gain - df$legitimacy_loss
 ####generate s shapes for inverted u
 df$competitive_gain_u &amp;lt;- f_logit(6,-10,0,df$distinctiveness)
 df$legitimacy_loss_u &amp;lt;- f_logit(4,-12,0,df$distinctiveness)
-df$u &amp;lt;-df$competitive_gain_u - df$legitimacy_loss_u &lt;/code&gt;&lt;/pre&gt;
+df$u &amp;lt;-df$competitive_gain_u - df$legitimacy_loss_u&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1&amp;lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss, x=distinctiveness, colour=&amp;quot;costs&amp;quot;)) +
   scale_color_manual(name = &amp;quot;&amp;quot;, values = c( &amp;quot;benefits&amp;quot; = &amp;quot;darkgreen&amp;quot;, &amp;quot;costs&amp;quot; = &amp;quot;darkred&amp;quot;))+
   labs(y=&amp;quot;Relative strength&amp;quot;, x=&amp;quot;Distinctiveness&amp;quot;)+
@@ -117,14 +117,14 @@ p2 &amp;lt;- ggplot() +
   theme_bw()
 
 p3 &amp;lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&amp;quot;benefits&amp;quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss_u, x=distinctiveness, colour=&amp;quot;costs&amp;quot;)) +
   scale_color_manual(name = &amp;quot;&amp;quot;, values = c( &amp;quot;benefits&amp;quot; = &amp;quot;darkgreen&amp;quot;, &amp;quot;costs&amp;quot; = &amp;quot;darkred&amp;quot;))+
   labs(y=&amp;quot;Relative strength&amp;quot;, x=&amp;quot;Distinctiveness&amp;quot;)+
   scale_y_continuous(breaks = NULL) +
   scale_x_continuous(breaks = NULL) +
   theme_bw()+ theme(legend.position = c(0.8,0.6))
- 
+
 
 p4 &amp;lt;- ggplot() +
   geom_line(data=df,aes(y = u, x=distinctiveness))  +  

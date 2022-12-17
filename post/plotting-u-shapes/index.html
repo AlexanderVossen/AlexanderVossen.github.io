@@ -309,10 +309,10 @@
     
       <meta
         property="article:published_time"
-        content="2022-12-16T00:00:00&#43;00:00"
+        content="2022-12-17T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2022-12-16T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2022-12-17T00:00:00&#43;00:00">
   
 
   
@@ -344,8 +344,8 @@
     "https://alexandervossen.github.io/post/plotting-u-shapes/featured.jpg"
   ],
   
-  "datePublished": "2022-12-16T00:00:00Z",
-  "dateModified": "2022-12-16T00:00:00Z",
+  "datePublished": "2022-12-17T00:00:00Z",
+  "dateModified": "2022-12-17T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -814,7 +814,7 @@
     
       
     
-    Dec 16, 2022
+    Dec 17, 2022
   </span>
   
 
@@ -922,17 +922,17 @@ f_logit &lt;-function(b0,b1,b2,x) {
 distinctiveness &lt;- rtruncnorm(n=1000, a=0, b=1, mean=0.5, sd=0.2)
 df &lt;- data.frame(distinctiveness)</code></pre>
 <p>And compute us some variables to plot. Note that I use the parameters proposed by <span class="citation">Haans (<a href="#ref-haansWhatValueBeing2019" role="doc-biblioref">2019</a>)</span>.</p>
-<pre class="r"><code>###generate s shapes for  inverted u-shape 
+<pre class="r"><code>###generate s shapes for  inverted u-shape
 df$competitive_gain &lt;- f_logit(4,-12,0,df$distinctiveness) ## &quot;stronger&quot;
 df$legitimacy_loss &lt;- f_logit(6,-10,0,df$distinctiveness) ## &quot;weaker&quot;
 df$inverted_u &lt;-df$competitive_gain - df$legitimacy_loss ## substract from each other
 ####generate s shapes for  u
 df$competitive_gain_u &lt;- f_logit(6,-10,0,df$distinctiveness) ## &quot;weaker&quot;
 df$legitimacy_loss_u &lt;- f_logit(4,-12,0,df$distinctiveness) ## &quot;stronger&quot;
-df$u &lt;-df$competitive_gain_u - df$legitimacy_loss_u </code></pre>
+df$u &lt;-df$competitive_gain_u - df$legitimacy_loss_u</code></pre>
 <p>Now we can start to plot.</p>
 <pre class="r"><code>p1&lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&quot;benefits&quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&quot;benefits&quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss, x=distinctiveness, colour=&quot;costs&quot;)) +
   scale_color_manual(name = &quot;&quot;, values = c( &quot;benefits&quot; = &quot;darkgreen&quot;, &quot;costs&quot; = &quot;darkred&quot;))+
   labs(y=&quot;Relative strength&quot;, x=&quot;Distinctiveness&quot;)+
@@ -948,14 +948,14 @@ p2 &lt;- ggplot() +
   theme_bw()
 
 p3 &lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&quot;benefits&quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&quot;benefits&quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss_u, x=distinctiveness, colour=&quot;costs&quot;)) +
   scale_color_manual(name = &quot;&quot;, values = c( &quot;benefits&quot; = &quot;darkgreen&quot;, &quot;costs&quot; = &quot;darkred&quot;))+
   labs(y=&quot;Relative strength&quot;, x=&quot;Distinctiveness&quot;)+
   scale_y_continuous(breaks = NULL) +
   scale_x_continuous(breaks = NULL) +
   theme_bw()+ theme(legend.position = c(0.8,0.3))
- 
+
 
 p4 &lt;- ggplot() +
   geom_line(data=df,aes(y = u, x=distinctiveness))  +  
@@ -967,11 +967,11 @@ p4 &lt;- ggplot() +
 <pre class="r"><code>###patchwork plots
 p1+p2+p3+p4</code></pre>
 <p><img src="https://alexandervossen.github.io/post/plotting-u-shapes/index.en_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>And if you want to you can save it as a latex file to import in your paper. The width and height is what I found to fit nicely in my Latex layout.</p>
-<pre class="r"><code>## create tikz file by specifying your path 
+<p>And if you want to you can save it as a Latex file to import in your paper. The width and height is what I found to fit nicely in my Latex layout.</p>
+<pre class="r"><code>## create tikz file by specifying your path
 tikz(file = &quot;~/your/path/mech_plots.tex&quot;, width = 6.7, height = 3.4)
 
-p1+p2+p3+p4+plot_layout(ncol = 2) ## gives you two columns -redundant in this case
+p1+p2+p3+p4+plot_layout(ncol = 2) ## gives you two columns-redundant in this case
 
 dev.off()</code></pre>
 <p>If you want the OG <span class="citation">Haans (<a href="#ref-haansWhatValueBeing2019" role="doc-biblioref">2019</a>)</span> plots just specify the inverse-logit function and rerun the code. Note that I changed <code>theme(legend.position)</code> so that the labels do not overlap with the new plots.</p>
@@ -985,9 +985,9 @@ df$inverted_u &lt;-df$competitive_gain - df$legitimacy_loss
 ####generate s shapes for inverted u
 df$competitive_gain_u &lt;- f_logit(6,-10,0,df$distinctiveness)
 df$legitimacy_loss_u &lt;- f_logit(4,-12,0,df$distinctiveness)
-df$u &lt;-df$competitive_gain_u - df$legitimacy_loss_u </code></pre>
+df$u &lt;-df$competitive_gain_u - df$legitimacy_loss_u</code></pre>
 <pre class="r"><code>p1&lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&quot;benefits&quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain, x=distinctiveness, colour=&quot;benefits&quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss, x=distinctiveness, colour=&quot;costs&quot;)) +
   scale_color_manual(name = &quot;&quot;, values = c( &quot;benefits&quot; = &quot;darkgreen&quot;, &quot;costs&quot; = &quot;darkred&quot;))+
   labs(y=&quot;Relative strength&quot;, x=&quot;Distinctiveness&quot;)+
@@ -1003,14 +1003,14 @@ p2 &lt;- ggplot() +
   theme_bw()
 
 p3 &lt;- ggplot() +
-  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&quot;benefits&quot;)) + 
+  geom_line(data=df,aes(y = competitive_gain_u, x=distinctiveness, colour=&quot;benefits&quot;)) +
   geom_line(data=df,aes(y = legitimacy_loss_u, x=distinctiveness, colour=&quot;costs&quot;)) +
   scale_color_manual(name = &quot;&quot;, values = c( &quot;benefits&quot; = &quot;darkgreen&quot;, &quot;costs&quot; = &quot;darkred&quot;))+
   labs(y=&quot;Relative strength&quot;, x=&quot;Distinctiveness&quot;)+
   scale_y_continuous(breaks = NULL) +
   scale_x_continuous(breaks = NULL) +
   theme_bw()+ theme(legend.position = c(0.8,0.6))
- 
+
 
 p4 &lt;- ggplot() +
   geom_line(data=df,aes(y = u, x=distinctiveness))  +  
