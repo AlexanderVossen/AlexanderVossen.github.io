@@ -5,7 +5,7 @@
     <link>https://alexandervossen.github.io/post/</link>
       <atom:link href="https://alexandervossen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 02 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
@@ -13,35 +13,15 @@
     </image>
     
     <item>
-      <title>New working paper - Reaching for the stars?</title>
-      <link>https://alexandervossen.github.io/post/2023-01-02-new-wp/</link>
-      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://alexandervossen.github.io/post/2023-01-02-new-wp/</guid>
-      <description>&lt;h1 id=&#34;new-paper-on-optimal-distinctiveness-and-organizational-learning&#34;&gt;New paper on Optimal Distinctiveness and organizational learning!&lt;/h1&gt;
-&lt;p&gt;I am happy to share our latest working paper on how content creators on YouTube learn from the feedback they get on their content releases. Check it out &lt;a href=&#34;https://alexandervossen.github.io/publication/journal-article-reaching-stars/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>New working paper - More than meets the eye?</title>
-      <link>https://alexandervossen.github.io/post/2022-12-20-new-wp/</link>
-      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://alexandervossen.github.io/post/2022-12-20-new-wp/</guid>
-      <description>&lt;h1 id=&#34;new-paper-on-optimal-distinctiveness-and-visual-storytelling&#34;&gt;New paper on Optimal Distinctiveness and visual storytelling!&lt;/h1&gt;
-&lt;p&gt;I am happy to share our latest working paper on how startups use product images in online b2c markets. Check it out &lt;a href=&#34;https://alexandervossen.github.io/publication/journal-article-more-eye/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Plotting (inverted) u-shapes in R</title>
       <link>https://alexandervossen.github.io/post/plotting-u-shapes/</link>
-      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://alexandervossen.github.io/post/plotting-u-shapes/</guid>
       <description>
 
 
-&lt;p&gt;It seems that nowadays no paper on optimal distinctiveness gets published without a graph on how the s-shaped mechanisms of legitimacy loss and competitive gain result in a curvilinear effect. I collected some information on this from countless threads and guides and provide a small tutorial on how to do this in &lt;code&gt;R&lt;/code&gt;. Here you go:&lt;/p&gt;
-&lt;p&gt;First we load the packages:&lt;/p&gt;
+&lt;p&gt;It seems that nowadays, no paper on optimal distinctiveness gets published without a graph on how the s-shaped mechanisms of legitimacy loss and competitive gain result in a curvilinear effect. I collected some information from countless threads and guides and provided a small tutorial on how to do this in &lt;code&gt;R&lt;/code&gt;. Here you go:&lt;/p&gt;
+&lt;p&gt;First, we load the packages:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2) ## for plotting
 library(truncnorm) ## for making truncated normal distributions
 library(tikzDevice) ## for latex output
@@ -55,7 +35,7 @@ f_logit &amp;lt;-function(b0,b1,b2,x) {
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;##  I like 1000 observations from 0 to 1 with mean 0.5 and sd 0.2
 distinctiveness &amp;lt;- rtruncnorm(n=1000, a=0, b=1, mean=0.5, sd=0.2)
 df &amp;lt;- data.frame(distinctiveness)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And compute us some variables to plot. Note that I use the parameters proposed by &lt;span class=&#34;citation&#34;&gt;Haans (&lt;a href=&#34;#ref-haansWhatValueBeing2019&#34; role=&#34;doc-biblioref&#34;&gt;2019&lt;/a&gt;)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Moreover, compute some variables to plot. Note that I use the parameters proposed by &lt;span class=&#34;citation&#34;&gt;Haans (&lt;a href=&#34;#ref-haansWhatValueBeing2019&#34; role=&#34;doc-biblioref&#34;&gt;2019&lt;/a&gt;)&lt;/span&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;###generate s shapes for  inverted u-shape
 df$competitive_gain &amp;lt;- f_logit(4,-12,0,df$distinctiveness) ## &amp;quot;stronger&amp;quot;
 df$legitimacy_loss &amp;lt;- f_logit(6,-10,0,df$distinctiveness) ## &amp;quot;weaker&amp;quot;
@@ -97,11 +77,11 @@ p4 &amp;lt;- ggplot() +
   scale_y_continuous(breaks = NULL) +
   scale_x_continuous(breaks = NULL) +
   theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This renders us four plots that we then can join into a nice panel with patchwork.&lt;/p&gt;
+&lt;p&gt;This renders us four plots that we can then join into an excellent panel with patchwork.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;###patchwork plots
 p1+p2+p3+p4&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://alexandervossen.github.io/post/plotting-u-shapes/index.en_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;And if you want to you can save it as a Latex file to import in your paper. The width and height is what I found to fit nicely in my Latex layout.&lt;/p&gt;
+&lt;p&gt;And if you want to, you can save it as a Latex file to import into your paper. The width and height are what I found to fit nicely in my Latex layout.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## create tikz file by specifying your path
 tikz(file = &amp;quot;~/your/path/mech_plots.tex&amp;quot;, width = 6.7, height = 3.4)
 
@@ -168,6 +148,26 @@ Haans, Richard F. J. 2019. &lt;span&gt;“What’s the Value of Being Different 
     </item>
     
     <item>
+      <title>New working paper - Reaching for the stars?</title>
+      <link>https://alexandervossen.github.io/post/2023-01-02-new-wp/</link>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://alexandervossen.github.io/post/2023-01-02-new-wp/</guid>
+      <description>&lt;h1 id=&#34;new-paper-on-optimal-distinctiveness-and-organizational-learning&#34;&gt;New paper on Optimal Distinctiveness and organizational learning!&lt;/h1&gt;
+&lt;p&gt;I am happy to share our latest working paper on how content creators on YouTube learn from the feedback they get on their content releases. Check it out &lt;a href=&#34;https://alexandervossen.github.io/publication/journal-article-reaching-stars/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>New working paper - More than meets the eye?</title>
+      <link>https://alexandervossen.github.io/post/2022-12-20-new-wp/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://alexandervossen.github.io/post/2022-12-20-new-wp/</guid>
+      <description>&lt;h1 id=&#34;new-paper-on-optimal-distinctiveness-and-visual-storytelling&#34;&gt;New paper on Optimal Distinctiveness and visual storytelling!&lt;/h1&gt;
+&lt;p&gt;I am happy to share our latest working paper on how startups use product images in online b2c markets. Check it out &lt;a href=&#34;https://alexandervossen.github.io/publication/journal-article-more-eye/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>New working paper - Dancing to multiple tunes</title>
       <link>https://alexandervossen.github.io/post/2022-12-13-new-wp/</link>
       <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
@@ -195,13 +195,13 @@ Haans, Richard F. J. 2019. &lt;span&gt;“What’s the Value of Being Different 
       <description>
 
 
-&lt;p&gt;When dealing with panel data, one surely needs to expect biased standard errors. A great paper on this issue is &lt;span class=&#34;citation&#34;&gt;Petersen (&lt;a href=&#34;#ref-petersenEstimatingStandardErrors2009&#34; role=&#34;doc-biblioref&#34;&gt;2009&lt;/a&gt;)&lt;/span&gt; that this post builds on. Most commonly, the bias results from either correlation between different time periods of a group (a group effect) or correlation across different groups within the same time period (a time effect). While the former is often referred to as serial correlation, the latter is referred to as cross-sectional dependence.&lt;/p&gt;
-&lt;p&gt;Usually, when you use a package such as &lt;code&gt;plm&lt;/code&gt; you have two different options to choose from for both &lt;code&gt;random effect&lt;/code&gt; and &lt;code&gt;fixed effect&lt;/code&gt; models to account for the one, the other, or both: the &lt;code&gt;individual&lt;/code&gt; (only the group effect), the &lt;code&gt;time&lt;/code&gt; (only the time effect) or the &lt;code&gt;twoways&lt;/code&gt; effect (both group and time effect). Although this seems easy and straightforward right away, there may be situations where you cannot simply specify &lt;code&gt;twoways&lt;/code&gt; effects (for example if you intend to use the &lt;code&gt;nested&lt;/code&gt; random effect model) or, more critical in my opinion, one of the key assumptions of this approach is not valid: namely that both group and time effects are “fixed”.&lt;/p&gt;
-&lt;p&gt;“Fixed” here means that a group effect stays constant across all your time observations. This means implicitly that you assume that the impact of all the things you do not know or cannot measure for a firm is time-invariant, which is a strong assumption.&lt;/p&gt;
-&lt;p&gt;Think about the following examples: Image you are interested in the amount of money raised by start-ups in several funding rounds. Clearly, it is well known that the pitch, i.e., the presentation, influences investors &lt;span class=&#34;citation&#34;&gt;(&lt;a href=&#34;#ref-martensStoriesTheyTell2007&#34; role=&#34;doc-biblioref&#34;&gt;Martens, Jennings, and Jennings 2007&lt;/a&gt;)&lt;/span&gt;. The problem is that often you cannot explicitly measure how “good” the pitch was—you are usually not present and do not have a clear indication on how well it was received by investors.&lt;/p&gt;
-&lt;p&gt;As you have observations from multiple funding rounds, you usually would use a dummy for each start-up to control for such unobserved effects. However, that dummy does not change and stays the same across all funding rounds—even though a presenter’s performance at the respective pitches might vary strongly (think about either having a bad day, or it may be even a completely different presenter in different funding rounds). Therefore, it is possible that the “fixed” group dummy is biased.&lt;/p&gt;
-&lt;p&gt;For the time effect, the situation is similar. For capturing time effects you would use year dummies to indicate in which year the funding took place. Again this is “fixed”, in this case this means that it is the same for all start–ups that looked for funding in a given year. Just think about the pandemic: How realistic is it that funding rounds in 2021 have been identical for a start-up that works on a covid vaccine and a start-up that works on a dating app (which no one can use in a lockdown). These simplified examples show that such “fixed” time and/or group effects are a strong assumption.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;citation&#34;&gt;Petersen (&lt;a href=&#34;#ref-petersenEstimatingStandardErrors2009&#34; role=&#34;doc-biblioref&#34;&gt;2009&lt;/a&gt;)&lt;/span&gt; recommends an additional, and possibly even superior way of addressing this issue: Clustering your standard errors for the time and/or group clusters. I used it for one of my projects and I wanted to share a small function I wrote to quickly test if a group and/or time effect is present in your data. Let me illustrate with the &lt;code&gt;&#34;Fatalities&#34;&lt;/code&gt; data that comes with the &lt;code&gt;AER&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;When dealing with panel data, one must expect biased standard errors. An excellent paper on this issue is &lt;span class=&#34;citation&#34;&gt;Petersen (&lt;a href=&#34;#ref-petersenEstimatingStandardErrors2009&#34; role=&#34;doc-biblioref&#34;&gt;2009&lt;/a&gt;)&lt;/span&gt; which this post builds on. Most commonly, the bias results from either correlation between different time periods of a group (a group effect) or a correlation across different groups within the same time period (a time effect). While the former is often referred to as serial correlation, the latter is referred to as cross-sectional dependence.&lt;/p&gt;
+&lt;p&gt;Usually, when you use a package such as &lt;code&gt;plm&lt;/code&gt; you have two different options to choose from for both &lt;code&gt;random effect&lt;/code&gt; and &lt;code&gt;fixed effect&lt;/code&gt; models to account for the one, the other, or both: the &lt;code&gt;individual&lt;/code&gt; (only the group effect), the &lt;code&gt;time&lt;/code&gt; (only the time effect) or the &lt;code&gt;twoways&lt;/code&gt; effect (both group and time effect). Although this seems easy right away, there may be situations where you cannot simply specify &lt;code&gt;twoways&lt;/code&gt; effects (for example, if you intend to use the &lt;code&gt;nested&lt;/code&gt; random effect model) or, more critically, in my opinion, one of the key assumptions of this approach is not valid: namely that both group and time effects are “fixed.”&lt;/p&gt;
+&lt;p&gt;“Fixed” means that a group effect stays constant across all your time observations. This means implicitly that you assume that the impact of all the things you do not know or cannot measure for a firm is time-invariant, which is a strong assumption.&lt;/p&gt;
+&lt;p&gt;Think about the following examples: Image you are interested in the money raised by start-ups in several funding rounds. It is well known that the pitch, i.e., the presentation, influences investors &lt;span class=&#34;citation&#34;&gt;(&lt;a href=&#34;#ref-martensStoriesTheyTell2007&#34; role=&#34;doc-biblioref&#34;&gt;Martens, Jennings, and Jennings 2007&lt;/a&gt;)&lt;/span&gt;. The problem is that often you cannot explicitly measure how “good” the pitch was—you are usually not present and do not have a clear indication of how well investors received it.&lt;/p&gt;
+&lt;p&gt;As you have observations from multiple funding rounds, you usually would use a dummy for each start-up to control for such unobserved effects. However, that dummy does not change and stays the same across all funding rounds—even though a presenter’s performance at the respective pitches might vary enormously (think about either having a bad day or it may be even a completely different presenter in different funding rounds). Therefore, the “fixed” group dummy may be biased.&lt;/p&gt;
+&lt;p&gt;For the time effect, the situation is similar. For capturing time effects, you would use year dummies to indicate in which year the funding took place. Again this is “fixed”; in this case, this means that it is the same for all start-ups that looked for funding in a given year. Just think about the pandemic: How realistic is it that funding rounds in 2021 have been identical for a start-up that works on a covid vaccine and a start-up that works on a dating app (which no one can use in a lockdown)? These simplified examples show that such “fixed” time and group effects are a strong assumption.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;citation&#34;&gt;Petersen (&lt;a href=&#34;#ref-petersenEstimatingStandardErrors2009&#34; role=&#34;doc-biblioref&#34;&gt;2009&lt;/a&gt;)&lt;/span&gt; recommends an additional and possibly even superior way of addressing this issue: Clustering your standard errors for the time and group clusters. I used it for one of my projects, and I wanted to share a small function I wrote to quickly test if a group and/or time effect is present in your data. Let me illustrate with the &lt;code&gt;&#34;Fatalities&#34;&lt;/code&gt; data that comes with the &lt;code&gt;AER&lt;/code&gt; package.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(plm) #for estimating models
 library(AER) #for data
 library(lmtest) #for coeftest command&lt;/code&gt;&lt;/pre&gt;
@@ -258,7 +258,7 @@ rdm_se_hc&lt;/code&gt;&lt;/pre&gt;
 ## beertax     -2.1565e+02  7.5794e+01 -2.8451  0.004716 ** 
 ## ---
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that &lt;code&gt;white1&lt;/code&gt; and &lt;code&gt;HC3&lt;/code&gt; are usually the standard values for the &lt;code&gt;vcovHC&lt;/code&gt; command—however if a &lt;code&gt;plm&lt;/code&gt; object is analyzed the default is switched to clustered standard errors due to the panel structure. Therefore we have to manually switch it to the selection above. What we can already see from the results is that the robust standard errors have already more than doubled-so a great bias already found and accounted for. While robust SE help against heteroscedasticity, they do not help against serial correlation and/or cross-sectional dependence. This is what clustering is for—let us see what it brings at this point:&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;white1&lt;/code&gt; and &lt;code&gt;HC3&lt;/code&gt; are usually the standard values for the &lt;code&gt;vcovHC&lt;/code&gt; command—however if a &lt;code&gt;plm&lt;/code&gt; object is analyzed, the default is switched to clustered standard errors due to the panel structure. Therefore we have to manually switch it to the selection above. We can see from the results that the robust standard errors have already more than doubled, so a significant bias has already been found and accounted for. While robust SE help against heteroscedasticity, they do not help against serial correlation and cross-sectional dependence. This is what clustering is for—let us to see what it brings at this point:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_cg &amp;lt;- coeftest (rdm, vcov. = vcovHC(rdm, cluster = &amp;quot;group&amp;quot;))
 rdm_se_cg&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -272,7 +272,7 @@ rdm_se_cg&lt;/code&gt;&lt;/pre&gt;
 ## beertax     -2.1565e+02  1.0040e+02 -2.1478 0.032456 * 
 ## ---
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;These are the SE clustered by group, in our example the states. As we can see, they have increased a bit, but not too much. Petersen says when a group effect is present, your SE should increase “3-5 times” (p.476). Here the ratio is much smaller (remember that we already included a random group effect in the model beforehand).&lt;/p&gt;
+&lt;p&gt;These are the SE clustered by group, in our example, the states. As we can see, they have increased a bit, but not too much. Petersen says that when a group effect is present, your SE should increase “3-5 times” (p.476). Here the ratio is much smaller (remember that we already included a random group effect in the model beforehand).&lt;/p&gt;
 &lt;p&gt;In a similar manner, one can also cluster by time to look for a time effect. Here the command is:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct &amp;lt;- coeftest (rdm, vcov. = vcovHC(rdm, cluster = &amp;quot;time&amp;quot;))
 rdm_se_ct&lt;/code&gt;&lt;/pre&gt;
@@ -287,8 +287,8 @@ rdm_se_ct&lt;/code&gt;&lt;/pre&gt;
 ## beertax     -2.1565e+02  4.7557e+01 -4.5345 8.082e-06 ***
 ## ---
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here, the SE are actually smaller than the HC ones. This again does not speak for a time effect (again, remember we included a random time effect by using the &lt;code&gt;twoways&lt;/code&gt; option). Thus, in this example it seems perfectly fine to just use the robust SE instead of the clustered ones as there seems not to be either a time or group effect that is not captured by our random variables.&lt;/p&gt;
-&lt;p&gt;Here is the small function I wrote. Please note a few things: It compares the clustered SE with the robust White as suggested by Petersen. It then extracts the second column that contains the standard errors from the &lt;code&gt;named num&lt;/code&gt; values the &lt;code&gt;coeftest&lt;/code&gt; produce. I then sum them up and divide them with each other to obtain the ratio and compare them to the critical values of 3 (group effect) and 2 (time effect). Take this only as an indication! The change in standard error values is usually not consistent across variables, i.e., it can be stronger/weaker for some. As it actually sums up all the standard errors of the variables included in the model (including your control variables) the magnitude of the group effect may be partially driven by the scales your variables are measured on. If you want to be sure you can always single out an individual IV with the code. Simply do the following:&lt;/p&gt;
+&lt;p&gt;Here, the SE is smaller than the HC ones. Again, this does not speak for a time effect (remember we included a random time effect using the &lt;code&gt;twoways&lt;/code&gt; option). Thus, in this example, it seems perfectly fine to use the robust SE instead of the clustered ones as there seems not to be a time or group effect that is not captured by our random variables.&lt;/p&gt;
+&lt;p&gt;Here is the small function I wrote. Please note a few things: It compares the clustered SE with the robust White as suggested by Petersen. It then extracts the second column that contains the standard errors from the &lt;code&gt;named num&lt;/code&gt; values the &lt;code&gt;coeftest&lt;/code&gt; produce. I then sum them up and divide them with each other to obtain the ratio and compare them to the critical values of 3 (group effect) and 2 (time effect). Take this only as an indication! The change in standard error values is usually not consistent across variables, i.e., it can be stronger/weaker for some. As it actually sums up all the standard errors of the variables included in the model (including your control variables), the magnitude of the group effect may be partially driven by the scales your variables are measured on. If you want to be sure, you can always single out an individual IV with the code. Do the following:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[,2] #this will select all the standard errors (second column) from your coeftest&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  (Intercept)        unemp       income        miles      beertax 
 ## 2.439589e+02 4.779086e+00 7.618368e-03 1.375804e-03 4.755659e+01&lt;/code&gt;&lt;/pre&gt;
@@ -296,8 +296,8 @@ rdm_se_ct&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.007618368&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[3,2]/rdm_se_hc[3,2] # test for time effect in income variable- no time effect&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.6694436&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Again the value is below 2 which speaks against the presence of a time effect, or more correctly an additional time effect hat is not controlled for by our random &lt;code&gt;twoways&lt;/code&gt; effect.&lt;/p&gt;
-&lt;p&gt;Lets look at the general function:&lt;/p&gt;
+&lt;p&gt;Again the value is below two which speaks against the presence of a time effect, or more correctly, an additional time effect that is not controlled for by our random &lt;code&gt;twoways&lt;/code&gt; effect.&lt;/p&gt;
+&lt;p&gt;Let’s look at the general function:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_time_effect &amp;lt;- function(x,...) {
   cov_w&amp;lt;-  coeftest(x, vcov. = vcovHC(x, method = &amp;quot;white1&amp;quot;, type = &amp;quot;HC3&amp;quot;,...))
   cov_time&amp;lt;- coeftest(x, vcov. = vcovHC(x, cluster = &amp;quot;time&amp;quot;, method = &amp;quot;arellano&amp;quot;, ...))
@@ -313,7 +313,7 @@ test_group_effect&amp;lt;- function(x,...) {
   cat(&amp;quot;The group clustered errors are:&amp;quot;, result_gr, &amp;quot;times larger!&amp;quot;)
   ifelse(result_gr&amp;gt;3, &amp;quot;Group effect likely present&amp;quot;, &amp;quot;No group effect present&amp;quot;)
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Lets test it&lt;/p&gt;
+&lt;p&gt;Let’s test it&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_time_effect(rdm)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## The time clustered errors are: 0.9961568 times larger!&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No time effect present&amp;quot;&lt;/code&gt;&lt;/pre&gt;
