@@ -1,3 +1,3 @@
 # alexandervossen.github.io
 
-Hi there this is a test readme.
+Welcome to the repo of my personal website. I write stuff on here occasionally, but not too frequently. 
